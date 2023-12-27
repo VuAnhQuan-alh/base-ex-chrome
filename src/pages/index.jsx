@@ -1,5 +1,5 @@
 import "../index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MainPage = () => {
   const [count, setCount] = useState(0);
@@ -9,11 +9,16 @@ const MainPage = () => {
     document.querySelector("#iconX").classList.remove("hiddenX");
   };
 
-  document.querySelector("#chestX").addEventListener("click", () => {
-    console.log("count", count);
+  const fnCounted = () => {
+    setCount((num) => num + 2);
+  };
 
-    setCount(count + 2);
-  });
+  useEffect(() => {
+    document.querySelector("#chestX").addEventListener("click", fnCounted);
+    return () => {
+      document.querySelector("#chestX").removeEventListener("click", fnCounted);
+    };
+  }, []);
 
   return (
     <section className="h-full w-full bg-[#fafafa] text-center absolute top-0 right-0">

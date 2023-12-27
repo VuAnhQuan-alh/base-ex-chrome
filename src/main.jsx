@@ -4,11 +4,11 @@ import App from "./App.jsx";
 import "./index.css";
 import MainPage from "./pages/index.jsx";
 
-function bootstrap() {
+document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector("#rootX")) {
     renderExtension();
   }
-}
+});
 
 function renderMain() {
   ReactDOM.createRoot(document.getElementById("mainX")).render(
@@ -37,7 +37,6 @@ async function clickMount() {
     },
   });
 }
-document.addEventListener("DOMContentLoaded", bootstrap());
 
 function renderIcon() {
   document.body.style = "position: relative;";
