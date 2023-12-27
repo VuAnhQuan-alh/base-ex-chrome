@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Coin XPet Extension",
+  "version": "1.0.1",
+  "description": "A basic example extension with only required keys",
+  "icons": {
+    "16": "coin.png",
+    "32": "coin.png",
+    "48": "coin.png",
+    "128": "coin.png"
+  },
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    { "resources": ["fonts/*.otf"], "matches": ["https://*/*"] }
+  ],
+  "permissions": ["activeTab", "scripting", "bookmarks"],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}
